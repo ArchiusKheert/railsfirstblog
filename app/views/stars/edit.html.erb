@@ -1,0 +1,8 @@
+<h1>Editing Star</h1>
+<br/>
+<%= render 'form', star: @star %>
+<br/>
+<%= link_to 'Show', @star, class:"btn btn-light" %> |
+<%= button_to 'Destroy', @star,  method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>|
+<%= link_to 'Back', stars_path, class:"btn btn-dark" %>
+

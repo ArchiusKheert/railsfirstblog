@@ -1,0 +1,38 @@
+<% if user_signed_in? %>
+
+  <h1>Star List</h1>
+  <br/>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr class="table-info">
+        <th>Name </th>
+        <th>Team</th>
+        <th>Country</th>
+        <th>Birth date</th>
+        <th>Delete star</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @stars.each do |star| %>
+        <% if star.user == current_user %>
+        <tr>
+          <td><%= link_to star.first_name + ' ' + star.last_name, star %></td>
+          <td><%= star.team %></td>
+          <td><%= star.country %></td>
+          <td><%= star.birth_date %></td>
+          <td><%= button_to 'Destroy', star,  method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %></td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Star', new_star_path, class:"btn btn-warning" %>
+<% else %>
+  <h1>Hello world. Try to signed in or up</h1>
+  <p>You can find signing at the upper nav-bar. Good luck</p>
+
+<% end %>

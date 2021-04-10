@@ -1,0 +1,30 @@
+
+
+<p>
+  <strong>First name:</strong>
+  <%= @star.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @star.last_name %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @star.team %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @star.country %>
+</p>
+
+<p>
+  <strong>Birth date:</strong>
+  <%= @star.birth_date %>
+</p>
+
+<%= link_to 'Edit', edit_star_path(@star), class:"btn btn-success" %>|
+
+<%= link_to 'Back', stars_path, class:"btn btn-danger" %>

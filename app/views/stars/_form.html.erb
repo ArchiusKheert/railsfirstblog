@@ -1,0 +1,50 @@
+<%= form_with(model: star) do |form| %>
+  <% if star.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(star.errors.count, "error") %> prohibited this star from being saved:</h2>
+
+      <ul>
+        <% star.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, class:"form-control", placeholder:"First Name" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, class:"form-control", placeholder:"Last Name" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :team %>
+    <%= form.text_field :team, class:"form-control", placeholder:"Club team" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :country %>
+    <%= form.text_field :country, class:"form-control", placeholder:"Country" %>
+  </div>
+  <br/>
+
+  <div class="field form-group">
+    <%= form.label :birth_date %>
+    <%= form.date_select :birth_date, class:"form-control", :start_year => 1900%>
+  </div>
+
+
+  <div class="field form-group">
+    <% form.label :user_id %>
+    <%= form.number_field :user_id, id: :friend_user_id, class:"form-control", value: current_user.id, type: :hidden%>
+  </div>
+  <br/>
+
+  <div class="field form-group">
+    <%= form.submit %>
+  </div>
+<% end %>
